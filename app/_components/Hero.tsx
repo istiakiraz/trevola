@@ -5,7 +5,8 @@ import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 import { useUser } from "@clerk/nextjs";
 import { ArrowDown, Globe2, Hotel, MapPin, Plane } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { use } from "react";
 
 const suggestions = [
   {
@@ -32,12 +33,17 @@ const suggestions = [
 
 function Hero() {
 
-    const {user} = useUser()
+    const {user} = useUser();
+    const router = useRouter();
 
     const onSend = () =>{
         if(!user){
-            
+
+            router.push("/sign-in");
+            return
         }
+
+        // navigate to trip creation page
     }
 
   return (

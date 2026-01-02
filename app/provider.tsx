@@ -6,6 +6,13 @@ function Provider({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+  const CreateNewUser = () =>{
+    // save new user if not exists
+  }
+
+
   return (
     <div className="min-h-screen h-full w-full relative">
       <div
