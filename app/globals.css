@@ -123,3 +123,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+::-webkit-scrollbar {
+    /* background: #F5ECE9; */
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8ac1e9;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+}

@@ -10,7 +10,7 @@ const navLinks = [
 
 function Header() {
   return (
-    <div className="bg-primary/10 backdrop:blur-2xl py-4">
+    <div className="bg-primary/5 backdrop-blur-md py-4">
       <div className="2xl:w-9/12 w-11/12 mx-auto flex items-center justify-between ">
         {/* logo */}
 

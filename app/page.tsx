@@ -1,4 +1,5 @@
 import Hero from "./_components/Hero";
+import { PopularCity } from "./_components/PopularCity";
 
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
    
     <div>
       <Hero/>
+      <PopularCity/>
       
     </div>
   );
