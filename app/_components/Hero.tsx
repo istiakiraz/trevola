@@ -1,6 +1,8 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Globe } from "@/components/ui/globe";
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
+import { useUser } from "@clerk/nextjs";
 import { ArrowDown, Globe2, Hotel, MapPin, Plane } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -29,6 +31,15 @@ const suggestions = [
 ];
 
 function Hero() {
+
+    const {user} = useUser()
+
+    const onSend = () =>{
+        if(!user){
+            
+        }
+    }
+
   return (
     <section className="my-20 flex relative items-center flex-col text-center justify-center ">
       <div className="max-w-4xl relative z-20 mx-auto w-full">
@@ -53,7 +64,7 @@ function Hero() {
 
           <Button
             className="p-1 cursor-pointer absolute right-5 hover:scale-105 duration-300 ease-in-out bottom-5"
-            size={"icon"}
+            size={"icon"} onClick={()=>onSend()}
           >
             {" "}
             <Image
