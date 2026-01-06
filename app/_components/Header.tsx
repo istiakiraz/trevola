@@ -1,4 +1,5 @@
-import { SignInButton } from "@clerk/nextjs";
+"use client";
+import { SignInButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -10,6 +11,8 @@ const navLinks = [
 ];
 
 function Header() {
+  const { user } = useUser();
+
   return (
     <div className="bg-primary/5 backdrop-blur-md py-4">
       <div className="2xl:w-9/12 w-11/12 mx-auto flex items-center justify-between ">
@@ -92,16 +95,24 @@ function Header() {
                 }
             `}</style>
 
-            <SignInButton mode="modal" >
+            {user ? (
+              <Link href={'/create-trip'}>
                 <div className="rainbow relative z-0 bg-primary overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
-              <button className="px-6 text-sm py-2 font-bold cursor-pointer text-white rounded-full  bg-primary backdrop-blur">
-                Get Started
-              </button>
-            </div>
-            </SignInButton>
-
-          
-
+                  <button className="px-6 text-sm py-2 font-bold cursor-pointer text-white rounded-full  bg-primary backdrop-blur">
+                    Create New Trip
+                  </button>
+                </div>
+              </Link>
+            ) : 
+            (
+              <SignInButton mode="modal">
+                <div className="rainbow relative z-0 bg-primary overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
+                  <button className="px-6 text-sm py-2 font-bold cursor-pointer text-white rounded-full  bg-primary backdrop-blur">
+                    Get Started
+                  </button>
+                </div>
+              </SignInButton>
+            )}
           </>
         </div>
       </div>

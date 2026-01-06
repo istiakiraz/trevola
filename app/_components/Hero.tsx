@@ -6,7 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { ArrowDown, Globe2, Hotel, MapPin, Plane } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { use } from "react";
+
 
 const suggestions = [
   {
@@ -52,7 +52,7 @@ function Hero() {
         {/* title + description */}
         <h1 className="text-5xl font-extrabold">
           Every Trip, Thoughtfully{" "}
-          <span className="text-primary">Planned by AI</span>
+          <span className="text-primary">Planned by AI  </span>
         </h1>
         <p className="mt-6 font-semibold text-lg">
           From idea to itinerary in seconds. Flights, hotels, and AI-powered
