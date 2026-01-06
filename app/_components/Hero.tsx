@@ -44,6 +44,8 @@ function Hero() {
         }
 
         // navigate to trip creation page
+
+        router.push("/create-new-trip")
     }
 
   return (

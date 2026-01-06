@@ -96,7 +96,7 @@ function Header() {
             `}</style>
 
             {user ? (
-              <Link href={'/create-trip'}>
+              <Link href={'/create-new-trip'}>
                 <div className="rainbow relative z-0 bg-primary overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
                   <button className="px-6 text-sm py-2 font-bold cursor-pointer text-white rounded-full  bg-primary backdrop-blur">
                     Create New Trip
