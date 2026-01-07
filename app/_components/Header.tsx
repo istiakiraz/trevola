@@ -172,10 +172,10 @@ function Header() {
             </button>
           </DrawerTrigger>
 
-          <DrawerContent className="h-2/6 w-full md:hidden  bg-primary/30 backdrop-blur-md fixed left-0 top-20 rounded-none">
+          <DrawerContent className="h-2/6 w-full md:hidden  bg-primary/10 backdrop-blur-md fixed left-0 top-20 rounded-none">
             <DrawerHeader className="flex items-end justify-end">
               <DrawerClose asChild>
-                <button className="text-white p-2">
+                <button className="text-white cursor-pointer p-2">
                   <X className="h-5 w-5" />
                 </button>
               </DrawerClose>
@@ -187,7 +187,7 @@ function Header() {
                   <a
                     key={link.path}
                     href={link.path}
-                    className=" text-xl text-white border-b w-full text-center duration-300 ease-in-out hover:text-gray-300"
+                    className=" text-xl text-white border-b w-full  text-center duration-300 ease-in-out hover:text-gray-300"
                   >
                     {link.name}
                   </a>

@@ -49,14 +49,14 @@ function Hero() {
     }
 
   return (
-    <section className="my-20 flex relative items-center flex-col text-center justify-center ">
+    <section className="lg:my-20 w-11/12 mx-auto my-10 flex relative items-center flex-col text-center justify-center ">
       <div className="max-w-4xl relative z-20 mx-auto w-full">
         {/* title + description */}
-        <h1 className="text-5xl font-extrabold">
+        <h1 className=" text-3xl  md:text-4xl lg:text-5xl font-extrabold">
           Every Trip, Thoughtfully{" "}
           <span className="text-primary">Planned by AI  </span>
         </h1>
-        <p className="mt-6 font-semibold text-lg">
+        <p className="lg:mt-6 mt-4 font-semibold  lg:text-lg">
           From idea to itinerary in seconds. Flights, hotels, and AI-powered
           trip planning made effortless.
         </p>
@@ -86,10 +86,10 @@ function Hero() {
         </div>
 
         {/* suggestion list */}
-        <div className="flex  items-center justify-center gap-5 mt-4">
+        <div className="flex flex-wrap items-center justify-center gap-5 mt-4">
           {suggestions.map((suggestion, idx) => (
             <div
-              className="flex items-center cursor-pointer hover:bg-primary/70 hover:text-white duration-200 ease-in-out text-sm font-semibold w-fit px-3 py-2 gap-2 rounded-3xl border"
+              className="flex items-center cursor-pointer hover:bg-primary/70 hover:text-white duration-600 transform-fill ease-in-out text-sm font-semibold w-fit px-3 py-2 gap-2 rounded-3xl border"
               key={idx}
             >
               {suggestion.icon}
@@ -102,7 +102,7 @@ function Hero() {
 
        
 
-      <div className="mt-20 w-200 flex flex-col items-center  justify-center mx-auto ">
+      <div className="mt-20 lg:w-200 flex flex-col items-center  justify-center mx-auto ">
 
            <h3 className="mb-4 flex items-center gap-2 text-lg" >Not Sure where to start? <span className="font-bold" >  See how it works</span> <ArrowDown/> </h3>
 
