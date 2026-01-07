@@ -5,6 +5,7 @@ import { useMutation } from "convex/react";
 import { useUser } from "@clerk/nextjs";
 import { api } from "@/convex/_generated/api";
 import { UserDetailsContext } from "@/context/UserDetialsContext";
+import ReactLenis from "lenis/react";
 
 function Provider({
   children,
@@ -35,7 +36,21 @@ function Provider({
   };
 
   return (
+    
     <UserDetailsContext.Provider value = {{userDetail, setUserDetail}}>
+      <ReactLenis root
+    options={{
+      lerp: 0.1,
+      duration: 1.2,
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+
+    }}
+    >
     <div className="min-h-screen h-full w-full relative">
       <div
         className="absolute inset-0 z-0"
@@ -51,7 +66,9 @@ function Provider({
         <main className="relative"> {children}</main>
       </div>
     </div>
+    </ReactLenis>
     </UserDetailsContext.Provider>
+   
   );
 }
 

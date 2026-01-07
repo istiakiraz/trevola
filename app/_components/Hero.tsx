@@ -104,7 +104,7 @@ function Hero() {
 
       <div className="mt-20 lg:w-200 flex flex-col items-center  justify-center mx-auto ">
 
-           <h3 className="mb-4 flex items-center gap-2 text-lg" >Not Sure where to start? <span className="font-bold" >  See how it works</span> <ArrowDown/> </h3>
+           <h3 className="mb-4 flex flex-col md:flex-row items-center gap-2 text-lg" >Not Sure where to start? <span className="font-bold" >  See how it works</span> <ArrowDown/> </h3>
 
           <HeroVideoDialog
           className="block dark:hidden "
