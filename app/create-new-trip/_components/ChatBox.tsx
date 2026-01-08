@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import axios from "axios";
 
+
 type Message = {
   role: string;
   content: string;
@@ -12,10 +13,12 @@ type Message = {
 function ChatBox() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const onSend = async () => {
     if (userInput.trim() === "") return;
 
+    setLoading(true);
     setUserInput(" ");
     const newMeg: Message = {
       role: "user",
@@ -30,13 +33,16 @@ function ChatBox() {
       messages: [...messages, newMeg],
     });
 
-    setMessages((prev:Message[])=> [...prev,{
-      role: "assistant",
-      content: result?.data?.resp
-    }])
+    setMessages((prev: Message[]) => [
+      ...prev,
+      {
+        role: "assistant",
+        content: result?.data?.resp,
+      },
+    ]);
 
-    console.log(result?.data)
-
+    console.log(result?.data);
+    setLoading(false);
   };
 
   return (
@@ -44,23 +50,27 @@ function ChatBox() {
       {/* Display Chat Messages */}
 
       <section className="flex-1 overflow-y-auto p-4">
+        {messages.map((msg: Message, idx) =>
+          msg.role === "user" ? (
+            <div key={idx} className="flex justify-end mt-2">
+              <div className="max-w-lg bg-primary animate- text-white px-4 py-2 rounded-lg ">
+                {msg.content}
+              </div>
+            </div>
+          ) : (
+            <div key={idx} className="flex justify-start mt-2">
+              <div className="max-w-lg bg-gray-200 px-4 py-2 rounded-lg ">
+                {  msg.content}
+              </div>
+            </div>
+          )
+        )}
 
-      {messages.map((msg:Message, idx) =>(
-        msg.role === "user" ? <div key={idx} className="flex justify-end mt-2">
-          <div  className="max-w-lg bg-primary text-white px-4 py-2 rounded-lg ">
-            {msg.content}
-          </div>
-        </div> :
-
-        <div key={idx} className="flex justify-start mt-2">
-          <div className="max-w-lg bg-gray-200 px-4 py-2 rounded-lg ">
-            {msg.content}
-          </div>
-        </div>
-
-      ))}
-
-        
+        {loading &&  <div  className="flex justify-start mt-2">
+              <div className="max-w-lg bg-gray-200 px-4 animate-accordion-down py-2 rounded-lg ">
+               <div className="" >Thinking<span className="animate-ping text-2xl" >...</span></div>
+              </div>
+            </div>}
       </section>
 
       {/* user input */}
@@ -69,7 +79,7 @@ function ChatBox() {
         {/* input area */}
         <div className="mt-6 relative   ">
           <textarea
-            placeholder="Describe your trip (e.g. New York → Paris)"
+            placeholder="Start typing…"
             className="w-full relative h-32 font-bold rounded-2xl focus:outline-none focus:ring-0 border-gray-300  border  resize-none p-5 "
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
