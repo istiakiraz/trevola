@@ -115,11 +115,17 @@ function Hero() {
         />
       </div>
 
+      
+
       </div>
 
       <div className=" opacity-10 -mt-20! z-10">
         <Globe />
       </div>
+
+
+
+
     </section>
   );
 }

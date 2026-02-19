@@ -46,7 +46,7 @@ function Provider({
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1,
-      smoothTouch: false,
+      // smoothTouch: false,
       touchMultiplier: 2,
 
     }}

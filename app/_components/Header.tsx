@@ -11,6 +11,7 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import MagneticButton from "./MagneticButton";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -116,13 +117,15 @@ function Header() {
             `}</style>
 
             {user ? (
-              <Link href={"/create-new-trip"}>
-                <div className="rainbow relative z-0 bg-primary overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
-                  <button className="px-6 text-sm py-2 font-bold cursor-pointer text-white rounded-full  bg-primary backdrop-blur">
-                    Create New Trip
-                  </button>
-                </div>
-              </Link>
+              <MagneticButton>
+                <Link href={"/create-new-trip"}>
+                  <div className="rainbow relative z-0 bg-primary overflow-hidden p-0.5 flex items-center justify-center rounded-full  transition duration-300 active:scale-100">
+                    <button className="px-6 text-sm py-2 font-bold cursor-pointer text-white rounded-full  bg-primary backdrop-blur">
+                      Create New Trip
+                    </button>
+                  </div>
+                </Link>
+              </MagneticButton>
             ) : (
               <SignInButton mode="modal">
                 <div className="rainbow relative z-0 bg-primary overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">

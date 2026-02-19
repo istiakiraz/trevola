@@ -46,10 +46,13 @@ function ChatBox() {
   };
 
   return (
-    <div className="h-[80vh] flex bg-primary/1 p-5 border border-primary/30 shadow rounded-2xl  flex-col ">
+    <div className="h-[80vh]  flex bg-primary/1 p-5 border border-primary/30 shadow rounded-2xl  flex-col ">
       {/* Display Chat Messages */}
 
-      <section className="flex-1 overflow-y-auto p-4">
+      <section 
+       onWheel={e => e.stopPropagation()}
+        onTouchMove={e => e.stopPropagation()}
+      className="flex-1 overflow-y-auto h-full p-4">
         {messages.map((msg: Message, idx) =>
           msg.role === "user" ? (
             <div key={idx} className="flex justify-end mt-2">
