@@ -1,7 +1,10 @@
-
 import { useRef } from "react";
 
-export default function MagneticButton({ children }: { children: React.ReactNode }) {
+export default function MagneticButton({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {

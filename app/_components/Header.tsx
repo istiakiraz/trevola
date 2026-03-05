@@ -10,7 +10,7 @@ import { SignInButton, useUser } from "@clerk/nextjs";
 import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import MagneticButton from "./MagneticButton";
 
 const navLinks = [

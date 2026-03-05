@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
@@ -47,10 +46,11 @@ const DummyContent = ({
   alt: string;
 }) => {
   return (
-    <div 
-    onWheel={e => e.stopPropagation()}
-        onTouchMove={e => e.stopPropagation()}
-    className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+    <div
+      onWheel={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+      className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+    >
       <p className="text-neutral-600 dark:text-neutral-400 mb-4 text-base md:text-2xl font-sans max-w-3xl mx-auto">
         <span className="font-bold text-neutral-700 dark:text-neutral-200">
           {heading}
@@ -119,8 +119,7 @@ const data = [
       heading: "Tokyo blends past and future.",
       description:
         "Experience neon-lit streets, ancient temples, futuristic tech, and world-famous cuisine in one of the most vibrant cities on Earth.",
-      image:
-        "https://images.unsplash.com/photo-1549692520-acc6669e2f0c",
+      image: "https://images.unsplash.com/photo-1549692520-acc6669e2f0c",
       alt: "Tokyo cityscape",
     },
   },
@@ -132,8 +131,7 @@ const data = [
       heading: "Zermatt is a mountain dream.",
       description:
         "Surrounded by the Alps and the iconic Matterhorn, Zermatt offers skiing, hiking, and unforgettable alpine scenery.",
-      image:
-        "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+      image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
       alt: "Zermatt mountains",
     },
   },
@@ -145,8 +143,7 @@ const data = [
       heading: "Dubai redefines luxury.",
       description:
         "Discover futuristic skyscrapers, desert safaris, luxury shopping, and world-class experiences in the heart of the UAE.",
-      image:
-        "https://images.unsplash.com/photo-1526495124232-a04e1849168c",
+      image: "https://images.unsplash.com/photo-1526495124232-a04e1849168c",
       alt: "Dubai skyline",
     },
   },
