@@ -1,18 +1,20 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 
 type Message = {
   role: string;
   content: string;
 };
 
-function ChatBox() {
+function ChatBox({ query = "" }: { query?: string }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+
+  console.log("query text" , query)
 
   const onSend = async () => {
     if (userInput.trim() === "") return;

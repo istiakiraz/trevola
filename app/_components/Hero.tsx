@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import { Globe } from "@/components/ui/globe";
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
@@ -6,7 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { ArrowDown, Globe2, Hotel, MapPin, Plane } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+import { useState } from "react";
 
 const suggestions = [
   {
@@ -32,29 +32,32 @@ const suggestions = [
 ];
 
 function Hero() {
+  const { user } = useUser();
+  const router = useRouter();
 
-    const {user} = useUser();
-    const router = useRouter();
-
-    const onSend = () =>{
-        if(!user){
-
-            router.push("/sign-in");
-            return
-        }
-
-        // navigate to trip creation page
-
-        router.push("/create-new-trip")
+  const onSend = () => {
+    if (!user) {
+      router.push("/sign-in");
+      return;
     }
 
+    // navigate to trip creation page
+
+    router.push(`/create-new-trip?query=${encodeURIComponent(tripText)}`);
+  };
+
+const [tripText, setTripText] = useState("");
+
   return (
+
+
+
     <section className="lg:my-20 w-11/12 mx-auto my-10 flex relative items-center flex-col text-center justify-center ">
       <div className="max-w-4xl relative z-20 mx-auto w-full">
         {/* title + description */}
         <h1 className=" text-3xl  md:text-4xl lg:text-5xl font-extrabold">
           Every Trip, Thoughtfully{" "}
-          <span className="text-primary">Planned by AI  </span>
+          <span className="text-primary">Planned by AI </span>
         </h1>
         <p className="lg:mt-6 mt-4 font-semibold  lg:text-lg">
           From idea to itinerary in seconds. Flights, hotels, and AI-powered
@@ -68,11 +71,14 @@ function Hero() {
             className="w-full relative h-32 font-bold rounded-2xl focus:outline-none focus:ring-0 border-gray-300  border  resize-none p-5 "
             name=""
             id=""
+            value={tripText}
+            onChange={(e) => setTripText(e.target.value)}
           ></textarea>
 
           <Button
             className="p-1 cursor-pointer absolute right-5 hover:scale-105 duration-300 ease-in-out bottom-5"
-            size={"icon"} onClick={()=>onSend()}
+            size={"icon"}
+            onClick={() => onSend()}
           >
             {" "}
             <Image
@@ -100,32 +106,26 @@ function Hero() {
 
         {/* video section */}
 
-       
-
-      <div className="mt-20 lg:w-200 flex flex-col items-center  justify-center mx-auto ">
-
-           <h3 className="mb-4 flex flex-col md:flex-row items-center gap-2 text-lg" >Not Sure where to start? <span className="font-bold" >  See how it works</span> <ArrowDown/> </h3>
+        <div className="mt-20 lg:w-200 flex flex-col items-center  justify-center mx-auto ">
+          <h3 className="mb-4 flex flex-col md:flex-row items-center gap-2 text-lg">
+            Not Sure where to start?{" "}
+            <span className="font-bold"> See how it works</span>{" "}
+            <ArrowDown />{" "}
+          </h3>
 
           <HeroVideoDialog
-          className="block dark:hidden "
-          animationStyle="from-center"
-          videoSrc="https://www.youtube.com/embed/Zcx247sfxPM?si=x5wfVYQFVrEDQAZT"
-          thumbnailSrc="/demoVideoImg.png"
-          thumbnailAlt="Dummy Video Thumbnail"
-        />
-      </div>
-
-      
-
+            className="block dark:hidden "
+            animationStyle="from-center"
+            videoSrc="https://www.youtube.com/embed/Zcx247sfxPM?si=x5wfVYQFVrEDQAZT"
+            thumbnailSrc="/demoVideoImg.png"
+            thumbnailAlt="Dummy Video Thumbnail"
+          />
+        </div>
       </div>
 
       <div className=" opacity-10 -mt-20! z-10">
         <Globe />
       </div>
-
-
-
-
     </section>
   );
 }
